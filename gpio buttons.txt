@@ -1,0 +1,74 @@
+
+
+maple TX = pin 1 y pin 5
+GP11 TX
+GP12 RX
+#define PICO_PIN1_PIN	11
+#define PICO_PIN5_PIN	12
+
+VCC = Pin 40 (VBUS)
+GND = Pin 38 (GND)
+DataPin 1 = GPIO11
+DataPin 5 = GPIO12
+Sense = Pin 3
+Shielding = Pin 8
+
+Buttons GND = Pin 13
+Pin 0 = A
+Pin 1 = B
+Pin 4 = X
+Pin 5 = Y
+Pin 6 = UP
+Pin 7 = DOWN
+Pin 8 = LEFT
+Pin 9 = RIGHT
+Pin 10 = START
+
+
+Maple Bus
+1: Data Pin 1
+2: VCC
+3: GND
+4: Sense (gnd?)
+5: Data pin 5
+
+
+Cable Chino:
+Verde: Pin 2 VCC
+Azul: Pin 4 Sense (GND)
+Blanco: Pin 3 GND
+Gris: Shielding = GND?
+Rojo: Pin 5 (Data Pin 5)
+Naranjo: Pin 1 (Data Pin 1)
+
+Cable Chino to Rpico
+
+Azul = Pin 3
+Blanco = Pin 8
+Naranjo = Pin 15
+Rojo = Pin 16
+Gris = Pin 32
+Verde = Pin 40
+
+
+
+
+
+
+https://www.maquinasvirtuales.eu/ipsoapoo/2021/02/raspberry-pi-pico-entradas-y-salidas-gpio-1.png
+
+#define TXPIO pio0
+#define RXPIO pio1
+
+ADC Input 0 = GPIO 26
+ADC Input 1 = GPIO 27
+ADC Input 2 = GPIO 28
+
+Maple pinout
+http://www.raphnet-tech.com/products/dreamcast_usb_circuit/dc_connector_pinout.png
+https://image.ibb.co/kEPSEc/Controll_Pinout_Mk_I.jpg
+
+adc_gpio_init(26); // Stick X 
+adc_gpio_init(27); // Stick Y
+adc_gpio_init(28); // Left Trigger
+adc_gpio_init(29); // Right Trigger
