@@ -639,14 +639,14 @@ void SendControllerStatus()
 		}
 	}
 	
-	adc_select_input(0);
-    ControllerPacket.Controller.JoyX2 = adc_read() >> 4;
-	adc_select_input(1);
-	ControllerPacket.Controller.JoyY2 = adc_read() >> 4;
+	// adc_select_input(0);
+    // ControllerPacket.Controller.JoyX2 = adc_read() >> 4;
+	// adc_select_input(1);
+	// ControllerPacket.Controller.JoyY2 = adc_read() >> 4;
 	//adc_select_input(2);
-    //ControllerPacket.Controller.LeftTrigger = adc_read() >> 4;
+    ControllerPacket.Controller.LeftTrigger = gpio_get(14) ? 0 : 0xff;
 	//adc_select_input(3);
-	//ControllerPacket.Controller.RightTrigger = adc_read() >> 4;
+	ControllerPacket.Controller.RightTrigger = gpio_get(15) ? 0 : 0xff;
 
 	ControllerPacket.Controller.Buttons = Buttons;
 
@@ -996,6 +996,12 @@ void SetupButtons()
 		gpio_pull_up(ButtonInfos[i].InputIO);
 
 	}
+	gpio_init(14);
+	gpio_set_dir(14, false);
+	gpio_pull_up(14);
+	gpio_init(15);
+	gpio_set_dir(15, false);
+	gpio_pull_up(15);
 }
 
 void SetupMapleTX()
@@ -1065,10 +1071,10 @@ int main() {
 	set_sys_clock_khz(200000, true);
 	adc_init();
 	adc_set_clkdiv(0);
-	adc_gpio_init(26); // Stick X
-    adc_gpio_init(27); // Stick Y
-	adc_gpio_init(28); // Left Trigger
-    adc_gpio_init(29); // Right Trigger
+	// adc_gpio_init(26); // Stick X
+    // adc_gpio_init(27); // Stick Y
+	// adc_gpio_init(28); // Left Trigger
+    // adc_gpio_init(29); // Right Trigger
 
 	i2c_init(I2C_PORT, I2C_CLOCK * 1000);
     gpio_set_function(I2C_SDA_PIN, GPIO_FUNC_I2C);

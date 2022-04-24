@@ -23,7 +23,8 @@ Pin 7 = DOWN
 Pin 8 = LEFT
 Pin 9 = RIGHT
 Pin 10 = START
-
+Pin 14 = Left Trigger ?
+Pin 15 = Right Trigger ?
 
 Maple Bus
 1: Data Pin 1
@@ -65,6 +66,7 @@ ADC Input 1 = GPIO 27
 ADC Input 2 = GPIO 28
 
 Maple pinout
+http://mc.pp.se/dc/controller.html
 http://www.raphnet-tech.com/products/dreamcast_usb_circuit/dc_connector_pinout.png
 https://image.ibb.co/kEPSEc/Controll_Pinout_Mk_I.jpg
 
